@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">GLM</string>
+    <string name="title_activity_create_list_screen">CreateList</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="done">Done</string>
+    <string name="create_a_new_list">Create A New List</string>
+    <string name="name">Name</string>
+    <string name="ask_name">List Name:</string>
+    <string name="title_activity_items_menu">ItemsMenuActivity</string>
+    <string name="add_an_item">Add an Item</string>
+    <string name="name_of_item">Name of Item:</string>
+    <string name="add_new_item">Add New Item</string>
+    <string name="item_type">Item Type</string>
+    <string name="item_name">Item Name</string>
+    <string name="new_item">New Item</string>
+    <string name="add_to_list">Add To List</string>
+    <string name="new_list_name">New List Name:</string>
+    <string name="change_list_name">Change List Name</string>
+    <string name="home">Home</string>
+    <string name="add">Add</string>
+    <string name="uncheck">Uncheck</string>
+</resources>
