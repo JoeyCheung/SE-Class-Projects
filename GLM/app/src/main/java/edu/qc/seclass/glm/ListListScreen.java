@@ -20,7 +20,7 @@ public class ListListScreen extends MenuActivity {
     private ListView simpleList;
 //    private FloatingActionButton addList;
     static AppDatabase mDb;
-    GListDao gListDao;
+    GroceryList groceryList;
     GList glist;
 
     @Override
@@ -39,7 +39,7 @@ public class ListListScreen extends MenuActivity {
 
         mDb=AppDatabase.getInstance(this);
 
-        gListDao = mDb.gListDao();// Get DAO object
+        groceryList = mDb.groceryList();// Get DAO object
         /*glist = new GList("stuffing");// Create User object to insert
         gListDao.insert(glist); // Insert it in database*/
 
@@ -48,7 +48,7 @@ public class ListListScreen extends MenuActivity {
         final ArrayList<String> list = new ArrayList<String>();
          //gListDao.getAllGLists();
         //
-        final ArrayList<GList> list2=new ArrayList<>(gListDao.getAllGLists());
+        final ArrayList<GList> list2=new ArrayList<>(groceryList.getAllGLists());
         for (GList i : list2) {
             list.add(i.getName());
         }
@@ -81,7 +81,7 @@ public class ListListScreen extends MenuActivity {
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                AppDatabase.getInstance(getApplicationContext()).gListDao().delete(item);
+                                AppDatabase.getInstance(getApplicationContext()).groceryList().delete(item);
                                 Intent myIntent = new Intent(view.getContext(), ListListScreen.class);
                                 startActivity(myIntent);
                             }})

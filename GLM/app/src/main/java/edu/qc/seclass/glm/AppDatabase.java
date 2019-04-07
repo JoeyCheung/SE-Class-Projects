@@ -18,7 +18,7 @@ import edu.qc.seclass.glm.Model.Item;
 public abstract class AppDatabase extends RoomDatabase {
     public abstract ItemInterface itemInterface();
 
-    public abstract GListDao gListDao();
+    public abstract GroceryList groceryList();
 
     public abstract GListEntryDao gListEntryDao();
 

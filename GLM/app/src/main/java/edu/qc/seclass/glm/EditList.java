@@ -42,7 +42,7 @@ public class EditList extends EditMenuExtendable {
         List<GListEntry> gListEntries = AppDatabase.getInstance(getApplicationContext()).gListEntryDao().getAllGListEntries();
 
         try{
-            AppDatabase.getInstance(getApplicationContext()).gListDao().insert(new GList(newName));
+            AppDatabase.getInstance(getApplicationContext()).groceryList().insert(new GList(newName));
             for(GListEntry i:gListEntries){
                 if(i.getGListId().equals(oldName)){
                     i.setGListId(newName);
@@ -51,7 +51,7 @@ public class EditList extends EditMenuExtendable {
                     AppDatabase.getInstance(getApplicationContext()).gListEntryDao().insert(entry);
                 }
             }
-            AppDatabase.getInstance(getApplicationContext()).gListDao().deleteFromGListByName(oldName);
+            AppDatabase.getInstance(getApplicationContext()).groceryList().deleteFromGListByName(oldName);
             startActivity(new Intent(this, ListListScreen.class));
         }catch(Exception e){
             Toast.makeText(this, "List Name Already Exists", Toast.LENGTH_SHORT).show();

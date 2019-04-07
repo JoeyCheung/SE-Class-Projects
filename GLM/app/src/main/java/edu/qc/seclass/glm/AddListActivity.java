@@ -14,7 +14,7 @@ import edu.qc.seclass.glm.Model.GList;
 public class AddListActivity extends EditMenuExtendable {
 
     AppDatabase mDb;
-    GListDao gListDao;
+    GroceryList groceryList;
     GList glist;
 
     @Override
@@ -37,10 +37,10 @@ public class AddListActivity extends EditMenuExtendable {
     public void onButtonTap(View view) {
         EditText listName = findViewById(R.id.listName);
         String name = listName.getText().toString();
-        gListDao = ListListScreen.getDatabase().gListDao();
+        groceryList = ListListScreen.getDatabase().groceryList();
         GList gList = new GList(name);
 
-        GList exists = AppDatabase.getInstance(getApplicationContext()).gListDao().getGListWithName(name);
+        GList exists = AppDatabase.getInstance(getApplicationContext()).groceryList().getGListWithName(name);
         if(name.trim().length() == 0){
             Toast.makeText(getBaseContext(), "Name cannot be empty", Toast.LENGTH_LONG).show();
             return;
@@ -59,7 +59,7 @@ public class AddListActivity extends EditMenuExtendable {
              });
              builder.show();
         } else {
-             gListDao.insert(gList);
+             groceryList.insert(gList);
              startActivity(new Intent(this, ListListScreen.class));
          }
     }
@@ -67,8 +67,8 @@ public class AddListActivity extends EditMenuExtendable {
 
     public void populateRoom (String name){
         mDb=AppDatabase.getInstance(this);
-        gListDao = mDb.gListDao();// Get DAO object
+        groceryList = mDb.groceryList();// Get DAO object
         glist = new GList(name);// Create User object to insert
-        gListDao.insert(glist); // Insert it in database
+        groceryList.insert(glist); // Insert it in database
     }
 }

@@ -52,7 +52,7 @@ public class EditItem extends AppCompatActivity {
 
         //Get Item id
 
-        List<GList> gli = AppDatabase.getInstance(getApplicationContext()).gListDao().getAllGLists();
+        List<GList> gli = AppDatabase.getInstance(getApplicationContext()).groceryList().getAllGLists();
         for(GList g : gli) {
             if(g.getName().equals(listName)){
                 GListEntry e = new GListEntry(quantity, units, item.getId(), listName);

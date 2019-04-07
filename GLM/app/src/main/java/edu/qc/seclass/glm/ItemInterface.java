@@ -10,7 +10,8 @@ import java.util.List;
 
 import edu.qc.seclass.glm.Model.Item;
 
-public @Dao interface ItemInterface {
+@Dao
+public interface ItemInterface {
 
     @Insert
     void insert (Item item);
