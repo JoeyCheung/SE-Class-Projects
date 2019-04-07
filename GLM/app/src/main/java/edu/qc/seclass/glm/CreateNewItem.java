@@ -43,7 +43,7 @@ public class CreateNewItem extends AppCompatActivity {
 
         Item item = new Item(name, type);
 
-        List<Item> items = AppDatabase.getInstance(getApplicationContext()).itemDao().getAllItems();
+        List<Item> items = AppDatabase.getInstance(getApplicationContext()).itemInterface().getAllItems();
         boolean exists = false;
 
         for(Item i:items){
@@ -54,8 +54,8 @@ public class CreateNewItem extends AppCompatActivity {
         if(exists){
             Toast.makeText(getBaseContext(), "Item already exists!", Toast.LENGTH_LONG).show();
         } else {
-            AppDatabase.getInstance(getApplicationContext()).itemDao().insert(item);
-            items = AppDatabase.getInstance(getApplicationContext()).itemDao().getAllItems();
+            AppDatabase.getInstance(getApplicationContext()).itemInterface().insert(item);
+            items = AppDatabase.getInstance(getApplicationContext()).itemInterface().getAllItems();
             for(Item i:items){
                 if(i.getName().equals(item.getName()) && i.getType().equals(item.getType())){
                     item = i;

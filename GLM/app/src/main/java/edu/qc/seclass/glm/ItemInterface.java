@@ -1,17 +1,16 @@
 package edu.qc.seclass.glm;
 
-import android.arch.persistence.room.Delete;
-import android.arch.persistence.room.Query;
-import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
+import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import java.util.List;
 
 import edu.qc.seclass.glm.Model.Item;
 
-@Dao
-public interface ItemDao {
+public @Dao interface ItemInterface {
 
     @Insert
     void insert (Item item);
@@ -25,7 +24,7 @@ public interface ItemDao {
     @Delete
     void delete(Item... items);
 
-    @Query ("SELECT * FROM Item")
+    @Query("SELECT * FROM Item")
     List<Item> getAllItems();
 
     @Query ("SELECT * FROM Item WHERE id=:itemId")

@@ -23,7 +23,7 @@ import edu.qc.seclass.glm.Model.Item;
 
 public class AddItemsActivity extends AppCompatActivity {
     AppDatabase mDb;
-    ItemDao itemDao;
+    ItemInterface itemInterface;
     GList gList;
     ArrayList<String> listItems;
     ArrayList<Item> listItems2;
@@ -137,10 +137,10 @@ public class AddItemsActivity extends AppCompatActivity {
     }
 
     public void initList(String type) {
-        itemDao = ListListScreen.getDatabase().itemDao();
+        itemInterface = ListListScreen.getDatabase().itemInterface();
         listItems = new ArrayList<>();
         listItems2 = new ArrayList<>();
-        items = itemDao.getAllItems();
+        items = itemInterface.getAllItems();
         for(Item i : items) {
             if(type == null || i.getType().equals(type)){
                 listItems.add(i.getName() +"-("+ i.getType()+")");

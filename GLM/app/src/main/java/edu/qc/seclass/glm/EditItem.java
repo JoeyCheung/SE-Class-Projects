@@ -48,7 +48,7 @@ public class EditItem extends AppCompatActivity {
         //Get list and item
         String listName = getIntent().getStringExtra("ListName");
         int itemId =  Integer.parseInt(getIntent().getStringExtra("ItemID"));
-        Item item = AppDatabase.getInstance(getApplicationContext()).itemDao().getAllItemsWithId(itemId).get(0);
+        Item item = AppDatabase.getInstance(getApplicationContext()).itemInterface().getAllItemsWithId(itemId).get(0);
 
         //Get Item id
 

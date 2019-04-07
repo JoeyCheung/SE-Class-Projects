@@ -16,7 +16,7 @@ import edu.qc.seclass.glm.Model.Item;
 
 @Database (entities = {Item.class, GList.class, GListEntry.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
-    public abstract ItemDao itemDao();
+    public abstract ItemInterface itemInterface();
 
     public abstract GListDao gListDao();
 

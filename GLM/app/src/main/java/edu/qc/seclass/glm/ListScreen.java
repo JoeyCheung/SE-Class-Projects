@@ -123,14 +123,7 @@ public class ListScreen extends AppCompatActivity {
                 return false;
             }
         });
-
-
-
-
-
-
     }
-
 
     //method to expand all groups
     private void expandAll() {
@@ -154,7 +147,7 @@ public class ListScreen extends AppCompatActivity {
         List<GListEntry> thing = AppDatabase.getInstance(getApplicationContext()).gListEntryDao().getAllGListEntries();
         for (GListEntry i:thing){
             if(i.getGListId().equals(getIntent().getExtras().getString("GList")))
-                addProduct(AppDatabase.getInstance(getApplicationContext()).itemDao().getAllItemsWithId(i.getItemId()).get(0).getType(),AppDatabase.getInstance(getApplicationContext()).itemDao().getAllItemsWithId(i.getItemId()).get(0).getName(), (int)i.getQuantity(),i.getUnit(), i);
+                addProduct(AppDatabase.getInstance(getApplicationContext()).itemInterface().getAllItemsWithId(i.getItemId()).get(0).getType(),AppDatabase.getInstance(getApplicationContext()).itemInterface().getAllItemsWithId(i.getItemId()).get(0).getName(), (int)i.getQuantity(),i.getUnit(), i);
         }
 
     }
