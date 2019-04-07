@@ -20,7 +20,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract GroceryList groceryList();
 
-    public abstract GListEntryDao gListEntryDao();
+    public abstract GroceryListEntry groceryListEntry();
 
     private static AppDatabase INSTANCE;
     public static ExecutorService es;

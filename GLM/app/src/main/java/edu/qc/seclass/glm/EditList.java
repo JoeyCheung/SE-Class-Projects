@@ -39,7 +39,7 @@ public class EditList extends EditMenuExtendable {
         String newName = listName.getText().toString();
 
 
-        List<GListEntry> gListEntries = AppDatabase.getInstance(getApplicationContext()).gListEntryDao().getAllGListEntries();
+        List<GListEntry> gListEntries = AppDatabase.getInstance(getApplicationContext()).groceryListEntry().getAllGListEntries();
 
         try{
             AppDatabase.getInstance(getApplicationContext()).groceryList().insert(new GList(newName));
@@ -48,7 +48,7 @@ public class EditList extends EditMenuExtendable {
                     i.setGListId(newName);
                     GListEntry entry = new GListEntry(i.getQuantity(), i.getUnit(), i.getItemId(), i.getGListId());
                     entry.setCheckBox(i.isCheckBox());
-                    AppDatabase.getInstance(getApplicationContext()).gListEntryDao().insert(entry);
+                    AppDatabase.getInstance(getApplicationContext()).groceryListEntry().insert(entry);
                 }
             }
             AppDatabase.getInstance(getApplicationContext()).groceryList().deleteFromGListByName(oldName);

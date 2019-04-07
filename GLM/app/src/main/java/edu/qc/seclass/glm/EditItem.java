@@ -56,8 +56,8 @@ public class EditItem extends AppCompatActivity {
         for(GList g : gli) {
             if(g.getName().equals(listName)){
                 GListEntry e = new GListEntry(quantity, units, item.getId(), listName);
-                AppDatabase.getInstance(getApplicationContext()).gListEntryDao().delete(listName, item.getId());
-                AppDatabase.getInstance(getApplicationContext()).gListEntryDao().insert(e);
+                AppDatabase.getInstance(getApplicationContext()).groceryListEntry().delete(listName, item.getId());
+                AppDatabase.getInstance(getApplicationContext()).groceryListEntry().insert(e);
             }
         }
 

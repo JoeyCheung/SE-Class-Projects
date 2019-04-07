@@ -21,14 +21,14 @@ public class CustomAdapter extends BaseExpandableListAdapter {
     private ArrayList<GroupInfo> deptList;
 
     static AppDatabase mDb;
-    GListEntryDao gListEntryDao;
+    GroceryListEntry groceryListEntry;
 
     public CustomAdapter(Context context, ArrayList<GroupInfo> deptList) {
         this.context = context;
         this.deptList = deptList;
 
         mDb = AppDatabase.getInstance(context);
-        gListEntryDao = mDb.gListEntryDao();
+        groceryListEntry = mDb.groceryListEntry();
     }
 
     @Override
@@ -65,7 +65,7 @@ public class CustomAdapter extends BaseExpandableListAdapter {
                 detailInfo.setCheck(isChecked);
                 checkBox.setChecked(detailInfo.getCheck());
                 // Update check_box for GListEntry in DB when checkbox is clicked in UI
-                gListEntryDao.updateCheckbox(detailInfo.getCheck(), detailInfo.getGListEntry().getId());
+                groceryListEntry.updateCheckbox(detailInfo.getCheck(), detailInfo.getGListEntry().getId());
             }
         });
         TextView quantity = view.findViewById(R.id.quantity);

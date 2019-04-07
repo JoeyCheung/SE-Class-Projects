@@ -84,7 +84,7 @@ public class ListScreen extends AppCompatActivity {
                     int childPosition = ExpandableListView.getPackedPositionChild(packedPos);
                     GroupInfo headerInfo = deptList.get(groupPosition);
                     ChildInfo detailInfo =  headerInfo.getProductList().get(childPosition);
-                    GListEntryDao thing = AppDatabase.getInstance(getApplicationContext()).gListEntryDao();
+                    GroceryListEntry thing = AppDatabase.getInstance(getApplicationContext()).groceryListEntry();
                     new AlertDialog.Builder(parent.getContext())
                             .setTitle("Edit or Delete")
                             .setMessage("Would you like to edit or delete this item?")
@@ -144,7 +144,7 @@ public class ListScreen extends AppCompatActivity {
     //load some initial data into out list
     
     private void loadData(){
-        List<GListEntry> thing = AppDatabase.getInstance(getApplicationContext()).gListEntryDao().getAllGListEntries();
+        List<GListEntry> thing = AppDatabase.getInstance(getApplicationContext()).groceryListEntry().getAllGListEntries();
         for (GListEntry i:thing){
             if(i.getGListId().equals(getIntent().getExtras().getString("GList")))
                 addProduct(AppDatabase.getInstance(getApplicationContext()).itemInterface().getAllItemsWithId(i.getItemId()).get(0).getType(),AppDatabase.getInstance(getApplicationContext()).itemInterface().getAllItemsWithId(i.getItemId()).get(0).getName(), (int)i.getQuantity(),i.getUnit(), i);
@@ -227,14 +227,14 @@ public class ListScreen extends AppCompatActivity {
                 return true;
             case R.id.menuDelete:
                 //Toast.makeText(this, "Unchecked menu item Clicked", Toast.LENGTH_SHORT).show();
-                AppDatabase.getInstance(getApplicationContext()).gListEntryDao().clearAllChecked(getIntent().getExtras().getString("GList"));
+                AppDatabase.getInstance(getApplicationContext()).groceryListEntry().clearAllChecked(getIntent().getExtras().getString("GList"));
                 Intent dintent = new Intent(this, ListScreen.class);
                 dintent.putExtra("GList", getIntent().getExtras().getString("GList"));
                 startActivity(dintent);
                 return true;
             case R.id.menuUncheck:
                 //Toast.makeText(this, "Unchecked menu item Clicked", Toast.LENGTH_SHORT).show();
-                AppDatabase.getInstance(getApplicationContext()).gListEntryDao().uncheckAllForGList(getIntent().getExtras().getString("GList"));
+                AppDatabase.getInstance(getApplicationContext()).groceryListEntry().uncheckAllForGList(getIntent().getExtras().getString("GList"));
                 Intent intent = new Intent(this, ListScreen.class);
                 intent.putExtra("GList", getIntent().getExtras().getString("GList"));
                 startActivity(intent);
