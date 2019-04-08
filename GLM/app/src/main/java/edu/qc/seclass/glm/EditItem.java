@@ -36,11 +36,11 @@ public class EditItem extends AppCompatActivity {
 
     public void onButtonTap(View view) {
 
-        EditText unitstext = findViewById(R.id.units);
-        EditText quantitytext = findViewById(R.id.quantity);
+        EditText unitsText = findViewById(R.id.units);
+        EditText quantityText = findViewById(R.id.quantity);
 
-        int quantity = Integer.parseInt(quantitytext.getText().toString());
-        String units = unitstext.getText().toString();
+        int quantity = Integer.parseInt(quantityText.getText().toString());
+        String units = unitsText.getText().toString();
 
         String listName = getIntent().getStringExtra("ListName");
         int itemId =  Integer.parseInt(getIntent().getStringExtra("ItemID"));
