@@ -13,21 +13,15 @@ import edu.qc.seclass.glm.Model.Item;
 @Dao
 public interface ItemInterface {
 
-    @Insert
-    void insert (Item item);
-
-    @Insert
-    void insertAll(Item... items);
-
-    @Update
-    void update(Item... items);
-
-    @Delete
-    void delete(Item... items);
-
     @Query("SELECT * FROM Item")
     List<Item> getAllItems();
 
     @Query ("SELECT * FROM Item WHERE id=:itemId")
     List<Item> getAllItemsWithId(final int itemId);
+
+    @Insert
+    void insert (Item i);
+
+    @Delete
+    void delete(Item... i);
 }

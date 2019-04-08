@@ -15,27 +15,18 @@ import edu.qc.seclass.glm.Model.GList;
 @Dao
 public interface GroceryList {
 
-    @Insert
-    void insert(GList glist);
-
-    @Insert
-    void insertAll(GList glist);
-
-    @Update
-    void update(GList... glists);
-
-    @Delete
-    void delete(GList... glists);
-
     @Query("DELETE FROM GList WHERE name=:name")
     void deleteFromGListByName(String name);
-
-    @Query ("UPDATE GList SET name=:newName WHERE name=:oldName")
-    void changeGListName(String newName, String oldName);
 
     @Query ("SELECT * FROM GList")
     List<GList> getAllGLists();
 
     @Query ("SELECT * FROM GList WHERE name=:name")
     GList getGListWithName(final String name);
+
+    @Insert
+    void insert(GList list);
+
+    @Delete
+    void delete(GList... gists);
 }

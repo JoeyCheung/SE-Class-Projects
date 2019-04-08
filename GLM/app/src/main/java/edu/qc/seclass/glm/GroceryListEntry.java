@@ -13,24 +13,6 @@ import edu.qc.seclass.glm.Model.GListEntry;
 @Dao
 public interface GroceryListEntry {
 
-    @Insert
-    void insert(GListEntry gListEntry);
-
-    @Insert
-    void insertAll(GListEntry gListEntry);
-
-    @Update
-    void update(GListEntry gListEntry);
-
-    @Update
-    void updateAll(GListEntry... gListEntries);
-
-    @Delete
-    void delete(GListEntry... gListEntries);
-
-    @Query ("SELECT * FROM GListEntry")
-    List<GListEntry> getAllGListEntries();
-
     @Query ("UPDATE GListEntry SET check_box= :gListEntryCheckbox WHERE id= :gListEntryId")
     void updateCheckbox(boolean gListEntryCheckbox, int gListEntryId);
 
@@ -43,4 +25,12 @@ public interface GroceryListEntry {
     @Query("DELETE FROM GListEntry WHERE g_list_id=:gListId and item_id=:itemId")
     void delete (String gListId, int itemId);
 
+    @Insert
+    void insert(GListEntry Entry);
+
+    @Delete
+    void delete(GListEntry... Entries);
+
+    @Query ("SELECT * FROM GListEntry")
+    List<GListEntry> getAllGListEntries();
 }

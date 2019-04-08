@@ -49,10 +49,8 @@ public class AddItemsActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.toString().equals("")){
-                    //reset listview
                     initList((String)dropdown.getSelectedItem());
                 }else {
-                    //perform search
                     searchItem(s.toString());
                 }
             }

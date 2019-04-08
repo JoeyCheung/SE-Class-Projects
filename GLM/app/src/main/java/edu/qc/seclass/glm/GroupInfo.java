@@ -12,17 +12,13 @@ public class GroupInfo implements Comparable<GroupInfo> {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String n) {
+        this.name = n;
     }
 
     public ArrayList<ChildInfo> getProductList() {
         Collections.sort(list);
         return list;
-    }
-
-    public void setProductList(ArrayList<ChildInfo> productList) {
-        this.list = productList;
     }
 
     public ChildInfo containsProduct(String s){
@@ -34,8 +30,7 @@ public class GroupInfo implements Comparable<GroupInfo> {
         return null;
     }
 
-    public int compareTo(GroupInfo other) {
-        return name.compareTo( other.getName() );
+    public int compareTo(GroupInfo o) {
+        return name.compareTo(o.getName());
     }
-
 }

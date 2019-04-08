@@ -30,30 +30,28 @@ public class EditList extends EditMenuExtendable {
 
     public void onButtonTap(View view) {
 
-        String oldName = getIntent().getStringExtra("GList");
+        String o = getIntent().getStringExtra("GList");
 
-        EditText listName = findViewById(R.id.listName);
-        String newName = listName.getText().toString();
+        EditText l = findViewById(R.id.listName);
+        String n = l.getText().toString();
 
 
         List<GListEntry> gListEntries = AppDatabase.getInstance(getApplicationContext()).groceryListEntry().getAllGListEntries();
 
         try{
-            AppDatabase.getInstance(getApplicationContext()).groceryList().insert(new GList(newName));
+            AppDatabase.getInstance(getApplicationContext()).groceryList().insert(new GList(n));
             for(GListEntry i:gListEntries){
-                if(i.getGListId().equals(oldName)){
-                    i.setGListId(newName);
+                if(i.getGListId().equals(o)){
+                    i.setGListId(n);
                     GListEntry entry = new GListEntry(i.getQuantity(), i.getUnit(), i.getItemId(), i.getGListId());
                     entry.setCheckBox(i.isCheckBox());
                     AppDatabase.getInstance(getApplicationContext()).groceryListEntry().insert(entry);
                 }
             }
-            AppDatabase.getInstance(getApplicationContext()).groceryList().deleteFromGListByName(oldName);
+            AppDatabase.getInstance(getApplicationContext()).groceryList().deleteFromGListByName(o);
             startActivity(new Intent(this, ListListScreen.class));
         }catch(Exception e){
             Toast.makeText(this, "List Name Already Exists", Toast.LENGTH_SHORT).show();
         }
-
     }
-
 }

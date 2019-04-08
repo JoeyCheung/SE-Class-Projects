@@ -14,13 +14,6 @@ public class EditMenuExtendable extends AppCompatActivity {
         setContentView(R.layout.activity_edit_menu_extendable);
     }
 
-        @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.editmenus, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -29,5 +22,12 @@ public class EditMenuExtendable extends AppCompatActivity {
             startActivity(new Intent(this, ListListScreen.class));
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.editmenus, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

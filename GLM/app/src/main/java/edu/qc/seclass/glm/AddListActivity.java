@@ -13,9 +13,7 @@ import edu.qc.seclass.glm.Model.GList;
 
 public class AddListActivity extends EditMenuExtendable {
 
-    AppDatabase mDb;
     GroceryList groceryList;
-    GList glist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +31,13 @@ public class AddListActivity extends EditMenuExtendable {
     }
 
     public void onButtonTap(View view) {
-        EditText listName = findViewById(R.id.listName);
-        String name = listName.getText().toString();
+        EditText l = findViewById(R.id.listName);
+        String n = l.getText().toString();
         groceryList = ListListScreen.getDatabase().groceryList();
-        GList gList = new GList(name);
+        GList gl = new GList(n);
 
-        GList exists = AppDatabase.getInstance(getApplicationContext()).groceryList().getGListWithName(name);
-        if(name.trim().length() == 0){
+        GList exists = AppDatabase.getInstance(getApplicationContext()).groceryList().getGListWithName(n);
+        if(n.trim().length() == 0){
             Toast.makeText(getBaseContext(), "Name cannot be empty", Toast.LENGTH_LONG).show();
             return;
         } else if(exists != null){
@@ -57,15 +55,8 @@ public class AddListActivity extends EditMenuExtendable {
              });
              builder.show();
         } else {
-             groceryList.insert(gList);
+             groceryList.insert(gl);
              startActivity(new Intent(this, ListListScreen.class));
          }
-    }
-
-    public void populateRoom (String name){
-        mDb=AppDatabase.getInstance(this);
-        groceryList = mDb.groceryList(); 
-        glist = new GList(name); 
-        groceryList.insert(glist); 
     }
 }
