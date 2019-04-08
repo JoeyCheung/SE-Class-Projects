@@ -1,9 +1,5 @@
 package edu.qc.seclass.glm.Model;
 
-/** Item class representing an entry in our
- * "Item dictionary."
- */
-
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;

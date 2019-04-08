@@ -15,7 +15,6 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
-    //Options Menu
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.basemenu,menu);
         return super.onCreateOptionsMenu(menu);
@@ -27,7 +26,7 @@ public class MenuActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch(id) {
             case R.id.menuAdd:
-                //Toast.makeText(this, "Add menu item is clicked", Toast.LENGTH_SHORT).show();
+
                 startActivity(new Intent(this, AddListActivity.class));
                 return true;
             default:

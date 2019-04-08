@@ -32,8 +32,6 @@ public class AddListActivity extends EditMenuExtendable {
 
     }
 
-    //Add GList name to Database on button tap
-
     public void onButtonTap(View view) {
         EditText listName = findViewById(R.id.listName);
         String name = listName.getText().toString();
@@ -64,11 +62,10 @@ public class AddListActivity extends EditMenuExtendable {
          }
     }
 
-
     public void populateRoom (String name){
         mDb=AppDatabase.getInstance(this);
-        groceryList = mDb.groceryList();// Get DAO object
-        glist = new GList(name);// Create User object to insert
-        groceryList.insert(glist); // Insert it in database
+        groceryList = mDb.groceryList(); 
+        glist = new GList(name); 
+        groceryList.insert(glist); 
     }
 }

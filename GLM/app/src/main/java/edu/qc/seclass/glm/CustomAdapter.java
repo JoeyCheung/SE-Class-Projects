@@ -1,8 +1,5 @@
 package edu.qc.seclass.glm;
 
-/**
- * Created by yigalsaperstein on 3/29/18.
- */
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -13,7 +10,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
 
 public class CustomAdapter extends BaseExpandableListAdapter {
 
@@ -53,7 +49,7 @@ public class CustomAdapter extends BaseExpandableListAdapter {
         }
 
         TextView sequence = (TextView) view.findViewById(R.id.sequence);
-        //sequence.setText(detailInfo.getSequence().trim() + ". ");
+
         final TextView childItem = (TextView) view.findViewById(R.id.childItem);
         childItem.setText(detailInfo.getName().trim());
         final CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkbox_meat);
@@ -64,7 +60,7 @@ public class CustomAdapter extends BaseExpandableListAdapter {
                 final boolean isChecked = checkBox.isChecked();
                 detailInfo.setCheck(isChecked);
                 checkBox.setChecked(detailInfo.getCheck());
-                // Update check_box for GListEntry in DB when checkbox is clicked in UI
+				
                 groceryListEntry.updateCheckbox(detailInfo.getCheck(), detailInfo.getGListEntry().getId());
             }
         });

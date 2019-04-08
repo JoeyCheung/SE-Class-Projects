@@ -18,7 +18,6 @@ import edu.qc.seclass.glm.Model.GList;
 
 public class ListListScreen extends MenuActivity {
     private ListView simpleList;
-//    private FloatingActionButton addList;
     static AppDatabase mDb;
     GroceryList groceryList;
     GList glist;
@@ -34,20 +33,11 @@ public class ListListScreen extends MenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_list_screen);
-
-//        addList = (FloatingActionButton) findViewById(R.id.addList);
-
         mDb=AppDatabase.getInstance(this);
 
-        groceryList = mDb.groceryList();// Get DAO object
-        /*glist = new GList("stuffing");// Create User object to insert
-        gListDao.insert(glist); // Insert it in database*/
-
-        //addList = (FloatingActionButton) findViewById(R.id.addList);
+        groceryList = mDb.groceryList();
 
         final ArrayList<String> list = new ArrayList<String>();
-         //gListDao.getAllGLists();
-        //
         final ArrayList<GList> list2=new ArrayList<>(groceryList.getAllGLists());
         for (GList i : list2) {
             list.add(i.getName());
@@ -56,7 +46,6 @@ public class ListListScreen extends MenuActivity {
 
 
         simpleList = (ListView)findViewById(R.id.listView);
-        //final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_list_list_screen, R.id.textView, countryList);
         final StableArrayAdapter arrayAdapter = new StableArrayAdapter(this, android.R.layout.simple_list_item_1, list);
         simpleList.setAdapter(arrayAdapter);
         simpleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,9 +60,7 @@ public class ListListScreen extends MenuActivity {
         simpleList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                /*GroupInfo headerInfo = deptList.get(position);
-                ChildInfo detailInfo =  headerInfo.getProductList().get(position);
-                Toast.makeText(getBaseContext(), "Long Clicked on :: " + headerInfo.getName() + "/" + detailInfo.getName(), Toast.LENGTH_LONG).show();*/
+
                 GList item = list2.get(position);
                 new AlertDialog.Builder(parent.getContext())
                         .setTitle("Edit or Delete")

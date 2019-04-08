@@ -1,10 +1,5 @@
 package edu.qc.seclass.glm.Model;
 
-/**
- * GListEntry class is analogous to a single entry into a GList
- * (ie  " [ ] Potato 3 lbs " )
- */
-
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;

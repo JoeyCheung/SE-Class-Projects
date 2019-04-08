@@ -35,7 +35,6 @@ public class CreateNewItem extends AppCompatActivity {
         String name = nameIn.getText().toString();
         String type = typeIn.getText().toString();
 
-        // UI Exception catch for empty name/type fields
         if (name.trim().length() == 0 || type.trim().length() == 0) {
             Toast.makeText(getBaseContext(), "Item must have a name and type!", Toast.LENGTH_LONG).show();
             return;

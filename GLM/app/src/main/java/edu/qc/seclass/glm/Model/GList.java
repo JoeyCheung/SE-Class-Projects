@@ -1,10 +1,5 @@
 package edu.qc.seclass.glm.Model;
 
-/**
- * GList class representing a "list of entries."
- * A GList is analogous to an actual practical grocery list.
- */
-
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 

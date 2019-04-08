@@ -16,8 +16,6 @@ import edu.qc.seclass.glm.Model.Item;
 
 public class EditItem extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +42,9 @@ public class EditItem extends AppCompatActivity {
         int quantity = Integer.parseInt(quantitytext.getText().toString());
         String units = unitstext.getText().toString();
 
-
-        //Get list and item
         String listName = getIntent().getStringExtra("ListName");
         int itemId =  Integer.parseInt(getIntent().getStringExtra("ItemID"));
         Item item = AppDatabase.getInstance(getApplicationContext()).itemInterface().getAllItemsWithId(itemId).get(0);
-
-        //Get Item id
 
         List<GList> gli = AppDatabase.getInstance(getApplicationContext()).groceryList().getAllGLists();
         for(GList g : gli) {

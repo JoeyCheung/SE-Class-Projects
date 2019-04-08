@@ -15,8 +15,6 @@ import edu.qc.seclass.glm.Model.GListEntry;
 
 public class EditList extends EditMenuExtendable {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +29,9 @@ public class EditList extends EditMenuExtendable {
     }
 
     public void onButtonTap(View view) {
-        //Old list name
+
         String oldName = getIntent().getStringExtra("GList");
 
-        //New List Name
         EditText listName = findViewById(R.id.listName);
         String newName = listName.getText().toString();
 
@@ -56,18 +53,6 @@ public class EditList extends EditMenuExtendable {
         }catch(Exception e){
             Toast.makeText(this, "List Name Already Exists", Toast.LENGTH_SHORT).show();
         }
-
-
-
-
-        //Change Name
-//        GList list = AppDatabase.getInstance(getApplicationContext()).gListDao().getGListWithName(oldName);
-//
-//        list.setName(newName);
-//
-//        AppDatabase.getInstance(getApplicationContext()).gListDao().update(list);
-
-
 
     }
 

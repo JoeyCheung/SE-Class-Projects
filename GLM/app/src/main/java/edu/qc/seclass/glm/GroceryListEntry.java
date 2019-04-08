@@ -34,11 +34,9 @@ public interface GroceryListEntry {
     @Query ("UPDATE GListEntry SET check_box= :gListEntryCheckbox WHERE id= :gListEntryId")
     void updateCheckbox(boolean gListEntryCheckbox, int gListEntryId);
 
-    // Delete all checked GListEntries from a given GList
     @Query ("DELETE FROM GListEntry WHERE check_box= 1 AND g_list_id= :gListName")
     void clearAllChecked(String gListName);
 
-    // Uncheck all checked GListEntries from a given GList
     @Query ("UPDATE GListEntry SET check_box=0 WHERE g_list_id= :gListName")
     void uncheckAllForGList(String gListName);
 
