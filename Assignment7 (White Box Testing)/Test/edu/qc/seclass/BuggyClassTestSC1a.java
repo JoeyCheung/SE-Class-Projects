@@ -9,6 +9,6 @@ class BuggyClassTestSC1a {
     //This does 100% statement coverage but not 100% branch coverage and doesn't show the fault
     @Test
     public void buggyMethod1() {
-        assertEquals(1, BuggyClass.buggyMethod1(2, 1));
+        assertEquals(1, BuggyClass.buggyMethod1(1, 2));
     }
 }
